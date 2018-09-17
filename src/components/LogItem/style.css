@@ -1,0 +1,44 @@
+.log-item {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.log-item.warning {
+  background: rgba(244, 194, 66, 0.4);
+}
+
+.log-item.dangerous {
+  background: rgba(244, 65, 65, 0.4);
+}
+
+.log-item div:nth-child(1) {
+  width: 5%;
+}
+
+.log-item div:nth-child(2) {
+  width: 15%;
+}
+
+.log-item div:nth-child(3) {
+  width: 15%;
+}
+
+.log-item div:nth-child(4) {
+  width: 15%;
+}
+
+.log-item div:nth-child(5) {
+  width: 15%;
+}
+
+.log-item div:nth-child(6) {
+  width: 25%;
+}
+
+.log-item div:nth-child(7) {
+  width: 10%;
+}

@@ -1,0 +1,7 @@
+const LogTypes = {
+  LOG_GET_ALL: 'LOG_GET_ALL',
+  LOG_GET_ALL_SUCCESS: 'LOG_GET_ALL_SUCCESS',
+  LOG_GET_ALL_FAILED: 'LOG_GET_ALL_FAILED'
+};
+
+export { LogTypes };

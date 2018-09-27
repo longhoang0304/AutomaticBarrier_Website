@@ -1,5 +1,5 @@
 import { LogTypes } from '../constants/ActionTypes';
-import { get, APIUrl } from '../lib/helper';
+import { get, APIUrl, del } from '../lib/helper';
 
 const fetchingLogs = () => ({
   type: LogTypes.LOG_GET_ALL,
@@ -38,8 +38,48 @@ const getLogs = () => async (dispatch) => {
   }
 };
 
+const archivingLogs = () => ({
+  type: LogTypes.LOG_ARCHIVE,
+});
+
+const archivedLogSuccess = (index) => ({
+  type: LogTypes.LOG_ARCHIVE_SUCCESS,
+  payload: {
+    index,
+  },
+});
+
+const archivedLogFailed = (errorMsg) => ({
+  type: LogTypes.LOG_ARCHIVE_FAILED,
+  payload: {
+    errorMsg,
+  },
+});
+
+
+const archiveLog = (index) => async (dispatch, getStore) => {
+  dispatch(archivingLogs());
+  let res;
+  const store = getStore().logs;
+  const { logList } = store;
+  try {
+    res = await del(APIUrl(`logs/${logList[index]._id}`));
+    const json = await res.json();
+    if (res.ok) {
+      dispatch(archivedLogSuccess(json));
+      return;
+    }
+    const { message } = json;
+    dispatch(archivedLogFailed(message || 'Unknown Error Occurred'));
+  } catch (error) {
+    console.log(error.message);
+    dispatch(archivedLogFailed(error.message));
+  }
+};
+
 const LogsActions = {
-  getLogs
+  getLogs,
+  archiveLog
 };
 
 export default LogsActions;

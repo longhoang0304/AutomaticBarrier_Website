@@ -19,6 +19,9 @@ export default class LogHeader extends Component {
           STATION
         </div>
         <div>
+          P. SPEED (Km/H)
+        </div>
+        <div>
           SPEED (Km/H)
         </div>
         <div>
@@ -26,6 +29,9 @@ export default class LogHeader extends Component {
         </div>
         <div>
           STATUS
+        </div>
+        <div>
+          ARCHIVE
         </div>
       </div>
     )

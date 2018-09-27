@@ -19,7 +19,7 @@ export default class LogItem extends Component {
   }
 
   render() {
-    const { item, no } = this.props;
+    const { item, no, archiveLog } = this.props;
 
     const classList = "log-item " + this.getStatusText(item.speed).toLowerCase();
 
@@ -38,6 +38,9 @@ export default class LogItem extends Component {
           {item.station || 'N/A'}
         </div>
         <div>
+          <span>80-120</span>
+        </div>
+        <div>
           {item.speed || 'N/A'}
         </div>
         <div>
@@ -45,6 +48,9 @@ export default class LogItem extends Component {
         </div>
         <div>
           {this.getStatusText(item.speed)}
+        </div>
+        <div>
+          <a href="javascript:void(0)" onClick={() => archiveLog(no)}>Archive</a>
         </div>
       </div>
     )

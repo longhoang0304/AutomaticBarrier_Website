@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
 const APIUrl = (api) => `https://barrier-api.herokuapp.com/api/${api}`;
-// const APIUrl = (api) => `http://192.168.1.103:3000/api/${api}`;
+// const APIUrl = (api) => `http://localhost:3001/api/${api}`;
 
 /**
  *

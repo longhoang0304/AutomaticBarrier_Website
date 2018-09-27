@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LogItem from '../LogItem';
+import LogItem from '../../containers/LogItem';
 import LogHeader from '../LogHeader';
 import _ from 'lodash';
 import './style.css';
